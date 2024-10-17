@@ -1,19 +1,42 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+design:
+  label: Design
+  permalink: /design
+  description: Design tag description
 
 hello:
   label: Hello
   permalink: /hello
   description: Hello tag description
 
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
+general:
+  label: General
+  permalink: /general
+  description: General tag description
 
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+development:
+  label: Development
+  permalink: /development
+  description: Development tag description
+
+tips & tricks:
+  label: Tips & Tricks
+  permalink: /tips-and-tricks
+  description: A collection of various tips and fun tricks of the trade from over the years
+
+resources:
+  label: Resources
+  permalink: /resources
+  description: Links to where I find wallpapers, news, ideas, and other helpful information.
+
+css:
+  label: CSS
+  permalink: /css
+  description: All things related to CSS
+html:
+  label: HTML
+  permalink: /html
+  description: All things related to HTML
+javascript:
+  label: JavaScript
+  permalink: /javascript
+  description: All things related to JavaScript
