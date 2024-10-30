@@ -1,0 +1,50 @@
+---
+tags: [general, development]
+---
+
+# Site Configuration
+
+This site was built using `.mdx` files vs regular `.md` files in order to utilize the benefits provided by React.
+
+In using `.mdx` syntax, I was able to create reusable React components that allowed me to simplify the code process and without requiring large amounts of customization.
+
+## Examples
+
+A few examples are included below:
+
+### Icons
+
+A simplistic React component that utilizes Font Awesome styles.
+
+```javascript
+<Icon variant="solid" icon="coffee" />
+<Icon variant="brands" icon="facebook" size="xxl" />
+```
+
+<Icon variant="solid" icon="coffee" />
+<Icon variant="brands" icon="facebook" size="xxl" />
+
+### Buttons
+
+```javascript
+<Button label="Primary" link="#site" variant="primary" size="lg" />
+<Button label="Secondary" link="#site" variant="secondary" size="lg" externalID="no" outline />
+<Button label="Link" link="#site" variant="link" />
+<Button label="Disabled" link="#site" disabled />
+<Button label="Block" link="#site" block />
+<Button label="Danger" link="#site" variant="danger" size="sm" outline block />
+```
+
+<Button label="Primary / Large" link="#site" variant="primary" size="lg" />
+<br />
+<Button label="Secondary / Small" link="#using" variant="secondary" size="sm" externalID="no" outline />
+<br />
+<Button label="Link" link="#site" variant="link" />
+<br />
+<Button label="Link w/External Icon" link="#site" variant="link" external />
+<br />
+<Button label="Disabled" link="#site" disabled />
+<br />
+<Button label="Block" link="#site" block />
+<br />
+<Button label="Danger / Outline" link="#site" variant="danger" size="sm" outline />

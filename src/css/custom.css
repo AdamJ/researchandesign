@@ -15,6 +15,14 @@
   --ifm-color-primary-lightest: #0079bf;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-footer-link-color: #b6e6ff;
+  --ifm-footer-link-hover-color: #33b9ff;
+
+  --rd-font-family--header: "Hubot-Sans", serif;
+  --rd-font-family--body: "Mona-Sans", Roboto, sans-serif;
+  --rd-font-family--code: "MonaspaceArgon-Medium", Monospace;
+  --fa-brand: "Font Awesome 5 Brands";
+  --fa-free: "Font Awesome 5 Free";
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -29,9 +37,65 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+@import url("../../node_modules/@fortawesome/fontawesome-free/css/all.css");
+
 html {
-  font-family: "Mona Sans";
+  font-family: var(--rd-font-family--body);
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Hubot Sans";
+  font-family: var(--rd-font-family--header);
+}
+pre, code, .code {
+  font-family: var(--rd-font-family--code) !important;
+}
+
+.footer--dark {
+  a,
+  .footer__link-item {
+    color: var(--ifm-footer-link-color);
+  }
+  a:hover,
+  .footer__link-item:hover {
+    color: var(--ifm-footer-link-hover-color);
+  }
+
+}
+.footer a[href*="github.com"]::before,
+.navbar .navbar__items > a[href*="github.com"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\f09b";
+  margin-right: 4px;
+}
+.footer a[href*="dev.to"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\f6cc";
+  margin-right: 4px;
+}
+.footer a[href*="linkedin.com"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\f08c";
+  margin-right: 4px;
+}
+.footer a[href*="threads.net"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\e618";
+  margin-right: 4px;
+}
+.footer a[href*="researchandesign/blog"]::before {
+  font-family: var(--fa-free);
+  font-weight: 700;
+  content: "\f09e";
+  margin-right: 4px;
+}
+
+/* If the class .link-external exists, add an icon */
+.link-external::after {
+  font-family: var(--fa-free);
+  font-weight: 700;
+  content: "\f08e";
+  margin-left: 4px;
 }

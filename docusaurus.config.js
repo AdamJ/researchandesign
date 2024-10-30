@@ -35,7 +35,47 @@ const config = {
       tagName: "link",
       attributes: {
         rel: "preload",
-        href: "static/fonts/Mono-Sans.woff2",
+        href: "static/fonts/Mona-Sans.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preload",
+        href: "static/fonts/MonaspaceArgon-Medium.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preload",
+        href: "static/fonts/fa-brands-400.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preload",
+        href: "static/fonts/fa-regular-400.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        rel: "preload",
+        href: "static/fonts/fa-solid-400.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -86,9 +126,8 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    // @type {import('@docusaurus/preset-classic').ThemeConfig}
     ({
-      // Replace with your project's social card
       image: 'img/docusaurus-social-card.png',
       navbar: {
         title: 'Research a new design',
@@ -130,11 +169,15 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Site',
             items: [
+              // {
+              //   label: 'Tutorial',
+              //   to: '/docs/intro',
+              // },
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Blog',
+                to: '/blog',
               },
             ],
           },
@@ -142,8 +185,21 @@ const config = {
             title: 'External',
             items: [
               {
+                label: 'GitHub',
+                href: 'https://github.com/AdamJ/researchandesign',
+              },
+              {
                 label: 'Dev',
                 href: 'https://dev.to',
+              },
+            ],
+          },
+          {
+            title: 'Social',
+            items: [
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/ajjolicoeur/',
               },
               {
                 label: 'Threads',
@@ -151,25 +207,12 @@ const config = {
               },
             ],
           },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/AdamJ/researchandesign',
-              },
-            ],
-          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} | Made with &#10084;&#65039; by <a href="https://www.adamjolicoeur.com/about/" alt="Link to Adam Jolicoeur's about page">Adam Jolicoeur</a>. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} | Made with &#10084;&#65039; by <a href="https://www.adamjolicoeur.com/about/" alt="Link to Adam Jolicoeur's about page">Adam Jolicoeur</a><br />Built with Docusaurus. <img src="img/docusaurus.png" height="16px" alt="Docusaurus logo" />`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: prismThemes.gruvboxMaterialLight,
+        darkTheme: prismThemes.nightOwl,
       },
     }),
 };
