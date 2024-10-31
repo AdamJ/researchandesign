@@ -23,6 +23,8 @@
   --rd-font-family--code: "MonaspaceArgon-Medium", Monospace;
   --fa-brand: "Font Awesome 5 Brands";
   --fa-free: "Font Awesome 5 Free";
+
+  --font-weight-regular: "400";
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -87,7 +89,7 @@ pre, code, .code {
 }
 .footer a[href*="researchandesign/blog"]::before {
   font-family: var(--fa-free);
-  font-weight: 700;
+  font-weight: 900;
   content: "\f09e";
   margin-right: 4px;
 }
@@ -98,4 +100,19 @@ pre, code, .code {
   font-weight: 700;
   content: "\f08e";
   margin-left: 4px;
+}
+.button--link.list-item {
+  font-size: 1rem;
+  font-weight: var(--font-weight-regular);
+  padding: 0;
+}
+.pagination-nav__link {
+  border-radius: 1rem;
+  padding: .75rem 1rem;
+}
+.pagination-nav__link.pagination-nav__link--prev {
+  border-color: var(--ifm-color-primary-light);
+}
+.pagination-nav__link.pagination-nav__link--next {
+  border-color: var(--ifm-color-primary-light);
 }

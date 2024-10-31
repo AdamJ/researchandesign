@@ -4,9 +4,9 @@ import clsx from 'clsx';
 // Build the Icon component with the specified props
 const Icon = ({
   size = null, // The size of the icon; 'sm', 'lg', 'xl', 2xl', or null (which is medium)
-  variant = 'solid', // Defaults to solid; use 'brands' for brand icons
+  variant = 'solid', // Defaults to solid; use 'brands' for brand icons; regular is available
   className, // Custom classes for the icon
-  icon, // Name of the icon (i.e. fa-coffee)
+  icon, // Name of the icon (i.e. fa-coffee but 'fa-' is not needed)
 }) => {
   const sizeMap = {
       sm: 'sm',
@@ -39,7 +39,4 @@ export default Icon;
 {/* <Icon variant="solid" size="md" icon="coffee" /> */}
 // Solid, Large
 {/* <Icon variant="solid" size="lg" icon="coffee" /> */}
-// Block
-{/* <Button label="Click me" link="#using" block /> */}
-// Combined
-{/* <Button label="Click me" link="#using" variant="danger" size="sm" outline block /> */}
+{/* <Icon variant="solid" size="sm" icon="square-up-right"></Icon> */}

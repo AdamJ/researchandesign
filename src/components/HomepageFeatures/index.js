@@ -4,8 +4,8 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Dogs are nice',
-    Svg: require('@site/static/img/undraw_dog.svg').default,
+    title: 'Design',
+    Svg: require('@site/static/img/undraw_computer_apps.svg').default,
     description: (
       <>
         Docusaurus was designed from the ground up to be easily installed and
@@ -14,8 +14,8 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Websites',
-    Svg: require('@site/static/img/undraw_website1.svg').default,
+    title: 'Product Management',
+    Svg: require('@site/static/img/undraw_drink_coffee.svg').default,
     description: (
       <>
         Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
@@ -24,8 +24,8 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Drink coffee',
-    Svg: require('@site/static/img/undraw_drink_coffee.svg').default,
+    title: 'Development',
+    Svg: require('@site/static/img/undraw_website1.svg').default,
     description: (
       <>
         Extend or customize your website layout by reusing React. Docusaurus can
