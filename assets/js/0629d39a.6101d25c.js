@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkresearchandesign=self.webpackChunkresearchandesign||[]).push([[3371],{923:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/researchandesign/blog/page/2","page":2,"postsPerPage":5,"totalPages":2,"totalCount":6,"previousPage":"/researchandesign/blog","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
