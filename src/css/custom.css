@@ -24,7 +24,9 @@
   --fa-brand: "Font Awesome 5 Brands";
   --fa-free: "Font Awesome 5 Free";
 
-  --font-weight-regular: "400";
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 900;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -51,7 +53,7 @@ pre, code, .code {
   font-family: var(--rd-font-family--code) !important;
 }
 
-.footer--dark {
+/* .footer--dark {
   a,
   .footer__link-item {
     color: var(--ifm-footer-link-color);
@@ -61,15 +63,15 @@ pre, code, .code {
     color: var(--ifm-footer-link-hover-color);
   }
 
-}
-.footer a[href*="github.com"]::before,
+} */
+/* .footer a[href*="github.com"]::before,
 .navbar .navbar__items > a[href*="github.com"]::before {
   font-family: var(--fa-brand);
   font-weight: 400;
   content: "\f09b";
   margin-right: 4px;
-}
-.footer a[href*="dev.to"]::before {
+} */
+/* .footer a[href*="dev.to"]::before {
   font-family: var(--fa-brand);
   font-weight: 400;
   content: "\f6cc";
@@ -92,7 +94,7 @@ pre, code, .code {
   font-weight: 900;
   content: "\f09e";
   margin-right: 4px;
-}
+} */
 
 /* If the class .link-external exists, add an icon */
 .link-external::after {
@@ -115,4 +117,7 @@ pre, code, .code {
 }
 .pagination-nav__link.pagination-nav__link--next {
   border-color: var(--ifm-color-primary-light);
+}
+.breadcrumbs__item--active .breadcrumbs__link {
+  font-weight: var(--font-weight-bold);
 }
