@@ -11,8 +11,8 @@ const config = {
   title: 'Research a new design',
   tagline: 'Research a new design today',
   favicon: 'img/favicon.ico',
-  url: 'https://www.researchandesign.com',
-  baseUrl: '/researchandesign',
+  url: 'https://www.adamjolicoeur.com',
+  baseUrl: '/researchandesign/',
   organizationName: 'AdamJ',
   projectName: 'researchandesign',
   deploymentBranch: 'gh-pages',
@@ -24,7 +24,7 @@ const config = {
     {
       tagName: "link",
       attributes: {
-        href: "/researchandesign/fonts/Hubot-Sans.woff2",
+        href: "/fonts/Hubot-Sans.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -33,7 +33,7 @@ const config = {
     {
       tagName: "link",
       attributes: {
-        href: "/researchandesign/fonts/Mona-Sans.woff2",
+        href: "/fonts/Mona-Sans.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -42,7 +42,7 @@ const config = {
     {
       tagName: "link",
       attributes: {
-        href: "/researchandesign/fonts/MonaspaceArgon-Medium.woff2",
+        href: "/fonts/MonaspaceArgon-Medium.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -51,7 +51,7 @@ const config = {
     {
       tagName: "link",
       attributes: {
-        href: "/researchandesign/fonts/fa-brands-400.woff2",
+        href: "/fonts/fa-brands-400.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -60,7 +60,7 @@ const config = {
     {
       tagName: "link",
       attributes: {
-        href: "/researchandesign/fonts/fa-regular-400.woff2",
+        href: "/fonts/fa-regular-400.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -69,7 +69,7 @@ const config = {
     {
       tagName: "link",
       attributes: {
-        href: "/researchandesign/fonts/fa-solid-900.woff2",
+        href: "/fonts/fa-solid-900.woff2",
         as: "font",
         type: "font/woff2",
         crossorigin: "anonymous",
@@ -87,16 +87,21 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: './sidebars.js',
+        // docs: {
+          // sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        // },
+        docs: false,
         blog: {
-          blogSidebarTitle: "Thoughts and Notes",
+          // routeBasePath: `/`,
+          blogSidebarTitle: "Thoughts and Such",
+          blogSidebarCount: 'ALL',
           showReadingTime: true,
+          readingTime: ({content, frontMatter, defaultReadingTime}) =>
+            defaultReadingTime({content, options: {wordsPerMinute: 300}}),
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -131,16 +136,21 @@ const config = {
           href: '/',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Start Here',
-          },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Documentation',
+          // },
           {
             to: '/blog',
-            label: 'Thoughts',
+            label: 'Blog',
             position: 'left'
+          },
+          {
+            href: 'https://www.adamjolicoeur.com',
+            label: 'Portfolio',
+            position: 'right'
           },
           {
             href: 'https://github.com/AdamJ/researchandesign',
@@ -149,18 +159,18 @@ const config = {
           },
         ],
       },
-      docs: {
-        sidebar: {
-          hideable: true,
-        }
-      },
+      // docs: {
+      //   sidebar: {
+      //     hideable: false,
+      //   }
+      // },
       colorMode: {
-        defaultMode: "light",
+        defaultMode: "dark",
         disableSwitch: false,
         respectPrefersColorScheme: true
       },
       footer: {
-        style: 'dark',
+        // style: 'light',
         links: [
           {
             title: 'Site',

@@ -15,7 +15,7 @@
   --ifm-color-primary-lightest: #0079bf;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-footer-link-color: #b6e6ff;
+  --ifm-footer-link-color: #005d93;
   --ifm-footer-link-hover-color: #33b9ff;
 
   --rd-font-family--header: "Hubot-Sans", serif;
@@ -38,6 +38,8 @@
   --ifm-color-primary-light: #e2f5ff;
   --ifm-color-primary-lighter: #f8fcff;
   --ifm-color-primary-lightest: #ffffff;
+  --ifm-footer-link-color: #8ad7ff;
+  --ifm-footer-link-hover-color: #33b9ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
