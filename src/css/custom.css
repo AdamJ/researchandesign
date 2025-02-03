@@ -6,25 +6,120 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #005d93;
+  --ifm-color-primary-dark: #005484;
+  --ifm-color-primary-darker: #004f7d;
+  --ifm-color-primary-darkest: #004167;
+  --ifm-color-primary-light: #0066a2;
+  --ifm-color-primary-lighter: #006ba9;
+  --ifm-color-primary-lightest: #0079bf;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-footer-link-color: #005d93;
+  --ifm-footer-link-hover-color: #33b9ff;
+
+  --rd-font-family--header: "Hubot-Sans", serif;
+  --rd-font-family--body: "Mona-Sans", Roboto, sans-serif;
+  --rd-font-family--code: "MonaspaceArgon-Medium", Monospace;
+  --fa-brand: "Font Awesome 5 Brands";
+  --fa-free: "Font Awesome 5 Free";
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 900;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #b6e6ff;
+  --ifm-color-primary-dark: #8ad7ff;
+  --ifm-color-primary-darker: #74d0ff;
+  --ifm-color-primary-darkest: #33b9ff;
+  --ifm-color-primary-light: #e2f5ff;
+  --ifm-color-primary-lighter: #f8fcff;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-footer-link-color: #8ad7ff;
+  --ifm-footer-link-hover-color: #33b9ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+@import url("../../node_modules/@fortawesome/fontawesome-free/css/all.css");
+
+html {
+  font-family: var(--rd-font-family--body);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--rd-font-family--header);
+}
+pre, code, .code {
+  font-family: var(--rd-font-family--code) !important;
+}
+
+/* .footer--dark {
+  a,
+  .footer__link-item {
+    color: var(--ifm-footer-link-color);
+  }
+  a:hover,
+  .footer__link-item:hover {
+    color: var(--ifm-footer-link-hover-color);
+  }
+
+} */
+/* .footer a[href*="github.com"]::before,
+.navbar .navbar__items > a[href*="github.com"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\f09b";
+  margin-right: 4px;
+} */
+/* .footer a[href*="dev.to"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\f6cc";
+  margin-right: 4px;
+}
+.footer a[href*="linkedin.com"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\f08c";
+  margin-right: 4px;
+}
+.footer a[href*="threads.net"]::before {
+  font-family: var(--fa-brand);
+  font-weight: 400;
+  content: "\e618";
+  margin-right: 4px;
+}
+.footer a[href*="researchandesign/blog"]::before {
+  font-family: var(--fa-free);
+  font-weight: 900;
+  content: "\f09e";
+  margin-right: 4px;
+} */
+
+/* If the class .link-external exists, add an icon */
+.link-external::after {
+  font-family: var(--fa-free);
+  font-weight: 700;
+  content: "\f08e";
+  margin-left: 4px;
+}
+.button--link.list-item {
+  font-size: 1rem;
+  font-weight: var(--font-weight-regular);
+  padding: 0;
+}
+.pagination-nav__link {
+  border-radius: 1rem;
+  padding: .75rem 1rem;
+}
+.pagination-nav__link.pagination-nav__link--prev {
+  border-color: var(--ifm-color-primary-light);
+}
+.pagination-nav__link.pagination-nav__link--next {
+  border-color: var(--ifm-color-primary-light);
+}
+.breadcrumbs__item--active .breadcrumbs__link {
+  font-weight: var(--font-weight-bold);
 }

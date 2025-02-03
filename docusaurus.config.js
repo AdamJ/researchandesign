@@ -8,28 +8,75 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
-  tagline: 'Research a new Design',
+  title: 'Research a new design',
+  tagline: 'Research a new design today',
   favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
-  url: 'https://www.researchandesign.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/researchandesign',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'AdamJ', // Usually your GitHub org/user name.
-  projectName: 'researchandesign', // Usually your repo name.
+  url: 'https://www.adamjolicoeur.com',
+  baseUrl: '/researchandesign/',
+  organizationName: 'AdamJ',
+  projectName: 'researchandesign',
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  headTags: [
+    {
+      tagName: "link",
+      attributes: {
+        href: "/fonts/Hubot-Sans.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/fonts/Mona-Sans.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/fonts/MonaspaceArgon-Medium.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/fonts/fa-brands-400.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/fonts/fa-regular-400.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+    {
+      tagName: "link",
+      attributes: {
+        href: "/fonts/fa-solid-900.woff2",
+        as: "font",
+        type: "font/woff2",
+        crossorigin: "anonymous",
+      },
+    },
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -40,15 +87,21 @@ const config = {
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
-        docs: {
-          sidebarPath: './sidebars.js',
+        // docs: {
+          // sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
           //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+        // },
+        docs: false,
         blog: {
+          // routeBasePath: `/`,
+          blogSidebarTitle: "Thoughts and Such",
+          blogSidebarCount: 'ALL',
           showReadingTime: true,
+          readingTime: ({content, frontMatter, defaultReadingTime}) =>
+            defaultReadingTime({content, options: {wordsPerMinute: 300}}),
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -61,6 +114,8 @@ const config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
+          postsPerPage: 5,
+          truncateMarker: /<!--\s*(truncate)\s*-->/,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -70,24 +125,33 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+    // @type {import('@docusaurus/preset-classic').ThemeConfig}
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/docusaurus-social-card.png',
       navbar: {
-        title: 'My Site',
+        title: 'Research a new design',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'research a new design logo',
           src: 'img/logo.svg',
+          href: '/',
         },
         items: [
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Documentation',
+          // },
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
+            to: '/blog',
+            label: 'Blog',
+            position: 'left'
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            href: 'https://www.adamjolicoeur.com',
+            label: 'Portfolio',
+            position: 'right'
+          },
           {
             href: 'https://github.com/AdamJ/researchandesign',
             label: 'GitHub',
@@ -95,54 +159,64 @@ const config = {
           },
         ],
       },
+      // docs: {
+      //   sidebar: {
+      //     hideable: false,
+      //   }
+      // },
+      colorMode: {
+        defaultMode: "dark",
+        disableSwitch: false,
+        respectPrefersColorScheme: true
+      },
       footer: {
-        style: 'dark',
+        // style: 'light',
         links: [
           {
-            title: 'Docs',
+            title: 'Site',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
+              // {
+              //   label: 'Tutorial',
+              //   to: '/docs/intro',
+              // },
               {
                 label: 'Blog',
                 to: '/blog',
               },
+            ],
+          },
+          {
+            title: 'External',
+            items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/AdamJ/researchandesign',
               },
+              {
+                label: 'Dev',
+                href: 'https://dev.to',
+              },
+            ],
+          },
+          {
+            title: 'Social',
+            items: [
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/ajjolicoeur/',
+              },
+              {
+                label: 'Threads',
+                href: 'https://threads.net/mindreeper',
+              },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Research A New Design. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} - Made with &#10084;&#65039; by <a href="https://www.adamjolicoeur.com/about/" alt="Link to Adam Jolicoeur's about page">Adam Jolicoeur</a>`,
       },
       prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
+        theme: prismThemes.gruvboxMaterialLight,
+        darkTheme: prismThemes.nightOwl,
       },
     }),
 };
