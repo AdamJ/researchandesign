@@ -8,8 +8,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Research a new design',
-  tagline: 'Research a new design today',
+  title: 'Research A New Design',
+  tagline: 'Join me as I travel the path of research and design.',
   favicon: 'img/favicon.ico',
   url: 'https://www.adamjolicoeur.com',
   baseUrl: '/researchandesign/',
@@ -97,7 +97,7 @@ const config = {
         docs: false,
         blog: {
           // routeBasePath: `/`,
-          blogSidebarTitle: "Thoughts and Such",
+          blogSidebarTitle: "Musings",
           blogSidebarCount: 'ALL',
           showReadingTime: true,
           readingTime: ({content, frontMatter, defaultReadingTime}) =>
@@ -129,9 +129,9 @@ const config = {
     ({
       image: 'img/docusaurus-social-card.png',
       navbar: {
-        title: 'Research a new design',
+        title: 'Research A New Design',
         logo: {
-          alt: 'research a new design logo',
+          alt: 'site logo',
           src: 'img/logo.svg',
           href: '/',
         },
@@ -172,19 +172,19 @@ const config = {
       footer: {
         // style: 'light',
         links: [
-          {
-            title: 'Site',
-            items: [
+          // {
+          //   title: 'Site',
+          //   items: [
               // {
               //   label: 'Tutorial',
               //   to: '/docs/intro',
               // },
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-            ],
-          },
+          //     {
+          //       label: 'Blog',
+          //       to: '/blog',
+          //     },
+          //   ],
+          // },
           {
             title: 'External',
             items: [
@@ -208,6 +208,19 @@ const config = {
               {
                 label: 'Threads',
                 href: 'https://threads.net/mindreeper',
+              },
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'Docusaurus',
+                href: 'https://docusaurus.io/',
+              },
+              {
+                label: 'unDraw',
+                href: 'https://undraw.co/',
               },
             ],
           },
