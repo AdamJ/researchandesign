@@ -40,3 +40,7 @@ javascript:
   label: JavaScript
   permalink: /javascript
   description: All things related to JavaScript
+ai:
+  label: ai
+  permalink: /ai
+  description: All things related to AI

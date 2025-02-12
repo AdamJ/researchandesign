@@ -17,6 +17,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-footer-link-color: #005d93;
   --ifm-footer-link-hover-color: #33b9ff;
+  --ifm-hero-background-color: #004167;
 
   --rd-font-family--header: "Hubot-Sans", serif;
   --rd-font-family--body: "Mona-Sans", Roboto, sans-serif;
@@ -41,6 +42,7 @@
   --ifm-footer-link-color: #8ad7ff;
   --ifm-footer-link-hover-color: #33b9ff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-hero-background-color: #004167;
 }
 
 @import url("../../node_modules/@fortawesome/fontawesome-free/css/all.css");
@@ -51,10 +53,49 @@ html {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--rd-font-family--header);
 }
+.markdown > h2 {
+  position: relative;
+  background: linear-gradient(90deg, var(--ifm-color-primary-lighter) 0%, var(--ifm-color-primary-darkest) 100%);
+  color: transparent;
+  background-clip: text;
+  &:before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--ifm-color-primary-lighter) 0%, var(--ifm-color-primary-darkest) 100%);
+    border-radius: 1rem;
+    width: 4rem;
+    height: .25rem;
+    z-index: -1;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .markdown > h2 {
+    position: relative;
+    background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darkest) 100%);
+    color: transparent;
+    background-clip: text;
+    &:before {
+      content: "";
+      position: absolute;
+      left: -1rem;
+      bottom: 0;
+      background: linear-gradient(90deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-darkest) 100%);
+      border-radius: 1rem;
+      width: 4rem;
+      height: .25rem;
+      z-index: -1;
+    }
+  }
+}
 pre, code, .code {
   font-family: var(--rd-font-family--code) !important;
 }
-
+.hero--primary {
+  --ifm-hero-background-color: #004167 !important;
+  --ifm-hero-text-color: #fff !important;
+}
 /* .footer--dark {
   a,
   .footer__link-item {
