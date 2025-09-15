@@ -23,7 +23,17 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
 
-      - name: Ensure public npm registry (avoid auth)
+      - name: Configure npm auth (use NPM token if provided)
+        if: ${{ secrets.NPM_TOKEN != '' }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "Setting npm token from secrets"
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm config set registry https://registry.npmjs.org/
+
+      - name: Ensure public npm registry (no token)
+        if: ${{ secrets.NPM_TOKEN == '' }}
         # Remove any repository .npmrc and force the public npm registry so npm won't try to authenticate
         run: |
           if [ -f .npmrc ]; then
