@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+  # Allow manual runs from the Actions tab
+  workflow_dispatch: {}
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -31,3 +33,24 @@ jobs:
           fi
       - name: Test build website
         run: npm run build
+
+      - name: Smoke test built site
+        # Start a local server briefly and curl the homepage to ensure build produced a valid site
+        run: |
+          npm run serve -- --port 3000 &
+          SERVER_PID=$!
+          # Wait for server to start (simple retry loop)
+          for i in {1..10}; do
+            sleep 1
+            status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 || true)
+            if [ "$status" = "200" ]; then
+              echo "Smoke test passed: HTTP 200"
+              break
+            fi
+          done
+          if [ "$status" != "200" ]; then
+            echo "Smoke test failed: expected HTTP 200, got $status" >&2
+            kill $SERVER_PID || true
+            exit 1
+          fi
+          kill $SERVER_PID || true
