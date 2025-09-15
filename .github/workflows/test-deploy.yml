@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+  # Allow manual runs from the Actions tab
+  workflow_dispatch: {}
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -17,10 +19,58 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: '22.x'
           cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Configure npm auth (use NPM token if provided)
+        if: ${{ secrets.NPM_TOKEN != '' }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "Setting npm token from secrets"
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm config set registry https://registry.npmjs.org/
+
+      - name: Ensure public npm registry (no token)
+        if: ${{ secrets.NPM_TOKEN == '' }}
+        # Remove any repository .npmrc and force the public npm registry so npm won't try to authenticate
+        run: |
+          if [ -f .npmrc ]; then
+            echo "Removing repository .npmrc to avoid unexpected auth"
+            rm -f .npmrc
+          fi
+          npm config set registry https://registry.npmjs.org/
+          npm config delete //registry.npmjs.org/:_authToken || true
 
       - name: Install dependencies
-        run: npm install --frozen-lockfile
+        run: |
+          # Prefer a clean install when a lockfile exists, otherwise fall back to npm install
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
       - name: Test build website
         run: npm run build
+
+      - name: Smoke test built site
+        # Start a local server briefly and curl the homepage to ensure build produced a valid site
+        run: |
+          npm run serve -- --port 3000 &
+          SERVER_PID=$!
+          # Wait for server to start (simple retry loop)
+          for i in {1..10}; do
+            sleep 1
+            status=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3000 || true)
+            if [ "$status" = "200" ]; then
+              echo "Smoke test passed: HTTP 200"
+              break
+            fi
+          done
+          if [ "$status" != "200" ]; then
+            echo "Smoke test failed: expected HTTP 200, got $status" >&2
+            kill $SERVER_PID || true
+            exit 1
+          fi
+          kill $SERVER_PID || true
